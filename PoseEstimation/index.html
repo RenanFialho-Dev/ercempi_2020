@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>PoseNet - Camera Pose Estimation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    </link>
+
+    <script src="camera.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <main class=>
+            <h1 class="titulo display-4 text-center font-weight-light text-muted">PoseNet - Identificação Em Tempo Real
+            </h1>
+
+            <div class="card backgrounCard">
+                <div class="card-body backgrounCard mx-auto">
+                    <div class="row">
+                        <div class="col-sm">
+                            <video id="video" autoplay="true" width="400px" height="400px"></video>
+                        </div>
+                        <div class="col-sm">
+                            <canvas id="canvas" width="400px" height="400px"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="card">
+                <div class="card-body backgrounCard2">
+                    <div class="row">
+                        <div class="col">
+                            <table class="table">
+                                <thead class="black white-text">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Partes</th>
+                                        <th scope="col">Acurácia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">0</th>
+                                        <td>Nariz</td>
+                                        <td><input id="0" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Olho E</td>
+                                        <td><input id="1" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Olho D</td>
+                                        <td><input id="2" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Orelha E</td>
+                                        <td><input id="3" type="text" readonly></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col colunaEspaco">
+                            <table class="table">
+                                <thead class="black white-text">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Partes</th>
+                                        <th scope="col">Acurácia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Orelha D</td>
+                                        <td><input id="4" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Ombro E</td>
+                                        <td><input id="5" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Ombro D</td>
+                                        <td><input id="6" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <td>Cotovelo E</td>
+                                        <td><input id="7" type="text" readonly></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col colunaEspaco">
+                            <table class="table">
+                                <thead class="black white-text">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Partes</th>
+                                        <th scope="col">Acurácia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">8</th>
+                                        <td>Orelha D</td>
+                                        <td><input id="8" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">9</th>
+                                        <td>Ombro E</td>
+                                        <td><input id="9" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">10</th>
+                                        <td>Ombro D</td>
+                                        <td><input id="10" type="text" readonly></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">11</th>
+                                        <td>Cotovelo E</td>
+                                        <td><input id="11" type="text" readonly></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col">
+                            <table class="table">
+                                <thead class="black white-text">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Partes</th>
+                                        <th scope="col">Acurácia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">12</th>
+                                        <td>Orelha D</td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">13</th>
+                                        <td>Ombro E</td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">14</th>
+                                        <td>Ombro D</td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">15</th>
+                                        <td>Cotovelo E</td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col">
+                            <table class="table">
+                                <thead class="black white-text">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Partes</th>
+                                        <th scope="col">Acurácia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">16</th>
+                                        <td>Orelha D</td>
+                                        <td><input type="text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </footer>
+    </div>
+
+
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext('2d');
+        const video = document.getElementById("video");
+
+        camera = new Camera();
+        camera.start();
+
+        getProgressVideo();
+
+        video.addEventListener('play', function () {
+            (function loop() {
+                if (!self.video.paused && !self.video.ended) {
+                    ctx.drawImage(self.video, 0, 0);
+                    setTimeout(loop, 1000 / 30); // drawing at 30fps
+                }
+            })();
+        });
+
+        function drawKeypoints(ctx, x, y, r, scale = 1) {
+            if (x !== 0 && y !== 0) {
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, 2 * Math.PI);
+                ctx.fillStyle = '#4DB680';
+                ctx.fill();;
+            }
+        }
+
+        function poseDetectionFramePoints(pose) {
+            this.setValuesOnInput(pose);
+            pose.keypoints.forEach(value => {
+                if (value.score >= 0.75) {
+                    drawKeypoints(ctx, value.position.x, value.position.y, 5);
+                }
+            });
+        }
+
+        function getProgressVideo() {
+            video.onprogress = () => {
+                if (!video.paused && !video.ended) {
+                    camera.estimateSinglePoseOnVideo().then(resultPoses => {
+                        poseDetectionFramePoints(resultPoses)
+                    });
+                }
+            }
+        }
+
+        function setValuesOnInput(pose) {
+            for (var i = 0; i < pose.keypoints.length; i++) {
+                if (pose.keypoints[i].score >= 0.75) {
+                    document.getElementById(i).value = pose.keypoints[i].score.toFixed(4);
+                }
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
