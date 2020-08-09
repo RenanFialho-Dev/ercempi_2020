@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HandPose</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+  <script src="camera.js"></script>
+</head>
+
+<body>
+  <video id="video" autoplay="true" width="250px" height="250px"></video>
+  <canvas id="canvas" width="250px" height="250px"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext('2d');
+    const video = document.getElementById("video");
+    let fingerLookupIndices = {
+      thumb: [0, 1, 2, 3, 4],
+      indexFinger: [0, 5, 6, 7, 8],
+      middleFinger: [0, 9, 10, 11, 12],
+      ringFinger: [0, 13, 14, 15, 16],
+      pinky: [0, 17, 18, 19, 20]
+    };
+    camera = new Camera();
+    camera.start();
+
+    getProgressVideo();
+    video.addEventListener('play', function () {
+      var $this = this; //cache
+      (function loop() {
+        if (!$this.paused && !$this.ended) {
+          ctx.drawImage($this, 0, 0);
+          setTimeout(loop, 1000 / 30); // drawing at 30fps
+        }
+      })();
+    }, 0);
+
+    function drawPoint(ctx, y, x, r) {
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, 2 * Math.PI);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fill();
+    }
+
+    function drawKeypoints(keypoints) {
+      const keypointsArray = keypoints;
+
+      for (let i = 0; i < keypointsArray.length; i++) {
+        const y = keypointsArray[i][0];
+        const x = keypointsArray[i][1];
+        drawPoint(ctx, x - 2, y - 2, 3);
+      }
+      // mapeamento das linha
+      const fingers = Object.keys(fingerLookupIndices);
+      for (let i = 0; i < fingers.length; i++) {
+        const finger = fingers[i];
+        const points = fingerLookupIndices[finger].map(idx => keypoints[idx]);
+        drawPath(ctx, points, false);
+      }
+    }
+
+    function drawPath(ctx, points, closePath) {
+      const region = new Path2D();
+      region.moveTo(points[0][0], points[0][1]);
+      for (let i = 1; i < points.length; i++) {
+        const point = points[i];
+        region.lineTo(point[0], point[1]);
+      }
+
+      if (closePath) {
+        region.closePath();
+      }
+      ctx.stroke(region);
+    }
+
+    function getProgressVideo() {
+      video.onprogress = () => {
+        camera.estimateHandsPoseOnVideo().then(resultPoses => {
+          if (resultPoses.length > 0) {
+            drawKeypoints(resultPoses[0].landmarks)
+          }
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>
