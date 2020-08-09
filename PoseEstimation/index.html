@@ -40,7 +40,7 @@
 
         <footer>
             <div class="card">
-                <div class="card-body backgrounCard2">
+                <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <table class="table">
@@ -49,150 +49,176 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">Partes</th>
                                         <th scope="col">Acurácia</th>
+                                        <th scope="col">Posições</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">0</th>
                                         <td>Nariz</td>
-                                        <td><input id="0" type="text" readonly></td>
+                                        <td id="0"></td>
+                                        <td class="text-left">
+                                            X=<span id="0x"></span> <br>     
+                                            Y=<span id="0y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Olho E</td>
-                                        <td><input id="1" type="text" readonly></td>
+                                        <td id="1"></td>
+                                        <td>
+                                            X=<span id="1x"></span> <br>     
+                                            Y=<span id="1y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Olho D</td>
-                                        <td><input id="2" type="text" readonly></td>
+                                        <td id="2"></td>
+                                        <td>
+                                            X=<span id="2x"></span> <br>     
+                                            Y=<span id="2y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
                                         <td>Orelha E</td>
-                                        <td><input id="3" type="text" readonly></td>
+                                        <td id="3"></td>
+                                        <td>
+                                            X=<span id="3x"></span> <br>     
+                                            Y=<span id="3y"></span>
+                                        </td>
                                     </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                        <div class="col colunaEspaco">
-                            <table class="table">
-                                <thead class="black white-text">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Partes</th>
-                                        <th scope="col">Acurácia</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
                                     <tr>
                                         <th scope="row">4</th>
                                         <td>Orelha D</td>
-                                        <td><input id="4" type="text" readonly></td>
+                                        <td id="4"></td>
+                                        <td>
+                                            X=<span id="4x"></span> <br>     
+                                            Y=<span id="4y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
                                         <td>Ombro E</td>
-                                        <td><input id="5" type="text" readonly></td>
+                                        <td id="5"></td>
+                                        <td>
+                                            X=<span id="5x"></span> <br>     
+                                            Y=<span id="5y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">6</th>
                                         <td>Ombro D</td>
-                                        <td><input id="6" type="text" readonly></td>
+                                        <td id="6"></td>
+                                        <td>
+                                            X=<span id="6x"></span> <br>     
+                                            Y=<span id="6y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">7</th>
                                         <td>Cotovelo E</td>
-                                        <td><input id="7" type="text" readonly></td>
+                                        <td id="7"></td>
+                                        <td>
+                                            X=<span id="7x"></span> <br>     
+                                            Y=<span id="7y"></span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-
-                        <div class="col colunaEspaco">
+                        <div class="col">
                             <table class="table">
                                 <thead class="black white-text">
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Partes</th>
                                         <th scope="col">Acurácia</th>
+                                        <th scope="col">Posições</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <th scope="row">8</th>
-                                        <td>Orelha D</td>
-                                        <td><input id="8" type="text" readonly></td>
+                                        <td>Cotovelo D</td>
+                                        <td id="8"></td>
+                                        <td>
+                                            X=<span id="8x"></span> <br>
+                                            Y=<span id="8y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">9</th>
-                                        <td>Ombro E</td>
-                                        <td><input id="9" type="text" readonly></td>
+                                        <td>Puso E</td>
+                                        <td id="9"></td>
+                                        <td>
+                                            X=<span id="9x"></span> <br>
+                                            Y=<span id="9y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">10</th>
-                                        <td>Ombro D</td>
-                                        <td><input id="10" type="text" readonly></td>
+                                        <td>Pulso D</td>
+                                        <td id="10"></td>
+                                        <td>
+                                            X=<span id="10x"></span> <br>
+                                            Y=<span id="10y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">11</th>
-                                        <td>Cotovelo E</td>
-                                        <td><input id="11" type="text" readonly></td>
+                                        <td>Quadril E</td>
+                                        <td id="11"></td>
+                                        <td>
+                                            X=<span id="11x"></span> <br>
+                                            Y=<span id="11y"></span>
+                                        </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="col">
-                            <table class="table">
-                                <thead class="black white-text">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Partes</th>
-                                        <th scope="col">Acurácia</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
                                     <tr>
                                         <th scope="row">12</th>
-                                        <td>Orelha D</td>
-                                        <td><input type="text"></td>
+                                        <td>Quadril D</td>
+                                        <td id="12"></td>
+                                        <td>
+                                            X=<span id="12x"></span> <br>
+                                            Y=<span id="12y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">13</th>
-                                        <td>Ombro E</td>
-                                        <td><input type="text"></td>
+                                        <td>Joelho E</td>
+                                        <td id="13"></td>
+                                        <td>
+                                            X=<span id="13x"></span> <br>
+                                            Y=<span id="13y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">14</th>
-                                        <td>Ombro D</td>
-                                        <td><input type="text"></td>
+                                        <td>Joelho D</td>
+                                        <td id="14"></td>
+                                        <td>
+                                            X=<span id="14x"></span> <br>
+                                            Y=<span id="14y"></span>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">15</th>
-                                        <td>Cotovelo E</td>
-                                        <td><input type="text"></td>
+                                        <td>tornozelo E</td>
+                                        <td id="15"></td>
+                                        <td>
+                                            X=<span id="15x"></span> <br>
+                                            Y=<span id="15y"></span>
+                                        </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="col">
-                            <table class="table">
-                                <thead class="black white-text">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Partes</th>
-                                        <th scope="col">Acurácia</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
                                     <tr>
                                         <th scope="row">16</th>
-                                        <td>Orelha D</td>
-                                        <td><input type="text"></td>
+                                        <td>tornozelo D</td>
+                                        <td id="16"></td>
+                                        <td>
+                                            X=<span id="16x"></span> <br>
+                                            Y=<span id="16y"></span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -200,8 +226,6 @@
                     </div>
                 </div>
             </div>
-    </div>
-    </div>
     </div>
     </footer>
     </div>
@@ -257,21 +281,23 @@
         function setValuesOnInput(pose) {
             for (var i = 0; i < pose.keypoints.length; i++) {
                 if (pose.keypoints[i].score >= 0.75) {
-                    document.getElementById(i).value = pose.keypoints[i].score.toFixed(4);
+                    document.getElementById(i).innerText = pose.keypoints[i].score.toFixed(4);
+                    document.getElementById(i+'x').innerText = pose.keypoints[i].position.x.toFixed(1)
+                    document.getElementById(i+'y').innerText = pose.keypoints[i].position.y.toFixed(1)
                 }
             }
         }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
