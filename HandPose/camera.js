@@ -14,7 +14,7 @@ Camera.prototype = {
                console.log("Não foi possível iniciar o vídeo" + err);
           })
      },
-     
+
      stop: function () {
           this.ligado = false
           const strem = this.videoTag.srcObject
@@ -28,12 +28,15 @@ Camera.prototype = {
      },
 
      async estimateHandsPoseOnVideo() {
-          const model = await handpose.load();
-          await model.estimateHands(this.videoTag, { flipHorizontal: false }).then(result => {
-               this.resultPoses = result;
-          }).catch((err) => {
-               console.log('Falha ao analisar', err);
-          });
+          if (this.ligado == true) {
+               const model = await handpose.load();
+               await model.estimateHands(this.videoTag, { flipHorizontal: false }).then(result => {
+                    this.resultPoses = result;
+                    console.log(this.resultPoses);
+               }).catch((err) => {
+                    console.log('Falha ao analisar', err);
+               });
+          }
           return this.resultPoses;
      }
 }

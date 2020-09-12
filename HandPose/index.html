@@ -5,14 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HandPose</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-cpu"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
   <script src="camera.js"></script>
 </head>
 
 <body>
-  <video id="video" autoplay="true" width="250px" height="250px"></video>
-  <canvas id="canvas" width="250px" height="250px"></canvas>
+  <div class="container">
+    <main></main>
+    <h1 class="titulo display-4 text-center font-weight-light text-muted">
+      MediaPipe - HandPose
+    </h1>
+
+    <div class="card backgrounCard">
+      <div class="card-body backgrounCard mx-auto">
+        <div class="row">
+          <div class="col-sm">
+            <video id="video" autoplay="true" width="400px" height="400px"></video>
+          </div>
+          <div class="col-sm">
+            <canvas id="canvas" width="400px" height="400px"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </main>
+  </div>
 
   <script>
     const canvas = document.getElementById("canvas");
@@ -27,7 +51,6 @@
     };
     camera = new Camera();
     camera.start();
-
     getProgressVideo();
     video.addEventListener('play', function () {
       var $this = this; //cache
